@@ -9,7 +9,7 @@ module UI
       match.load
       puts "Match loaded from file"
     else
-      match.guess_letter(input)
+      match.guess_letter(input.downcase)
     end
     print_results(match)
   end

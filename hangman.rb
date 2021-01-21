@@ -19,9 +19,8 @@ class Hangman
   end
 
   def guess_letter(letter_guess)
-    letter_guess.downcase!
     if valid_input?(letter_guess)
-      word_arr = @word.split("")
+      word_arr = @word.downcase.split("")
       if word_arr.include?(letter_guess)
         word_arr.each_with_index do |letter, index|
           @current_guess[index] = letter_guess if letter == letter_guess
