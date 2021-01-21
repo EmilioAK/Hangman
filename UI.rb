@@ -14,8 +14,8 @@ module UI
   end
 
   def load_game?(match)
-    puts 'Load your saved game? [y/N]'
-    puts 'You can also load your saved game at any time by typing "load" during the game.'
+    puts 'You can load your saved game right now or at any time by typing "load" during the game.'
+    puts 'Load your saved game right now? [y/N]'
     input = gets.chomp
 
     match.load if input.downcase[0] == 'y'
