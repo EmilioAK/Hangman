@@ -1,7 +1,7 @@
 module UI
   def get_input(match)
-    input = gets.chomp
-    case input.downcase
+    input = gets.chomp.downcase
+    case input
     when 'save'
       match.save
       puts 'Match saved to file'
@@ -9,7 +9,7 @@ module UI
       match.load
       puts 'Match loaded from file'
     else
-      match.guess_letter(input.downcase)
+      match.guess_letter(input)
     end
     print_results(match)
   end
