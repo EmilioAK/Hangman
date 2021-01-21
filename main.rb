@@ -1,16 +1,12 @@
-require_relative 'hangman.rb'
-require_relative "UI.rb"
+require_relative 'hangman'
+require_relative 'UI'
 include UI
 
 def main
   match = Hangman.new
   load_game?(match)
-  until match.winner
-    get_input(match)
-  end
+  get_input(match) until match.winner
   end_screen(match)
 end
 
-if $0 == __FILE__
-  main
-end
+main if $0 == __FILE__
