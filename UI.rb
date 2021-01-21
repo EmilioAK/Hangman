@@ -1,10 +1,11 @@
 module UI
   def get_input(match)
     input = gets.chomp
-    if input.downcase == 'save'
+    case input.downcase
+    when 'save'
       match.save
       puts 'Match saved to file'
-    elsif input.downcase == 'load'
+    when 'load'
       match.load
       puts 'Match loaded from file'
     else
