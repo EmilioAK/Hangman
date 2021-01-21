@@ -10,8 +10,8 @@ class Hangman
   end
 
   def winner
-    return 'Computer' if max_wrong_guesses
-    return 'Player' if word_found
+    return 'Computer' if max_wrong_guesses?
+    return 'Player' if word_found?
 
     false
   end
@@ -52,11 +52,11 @@ class Hangman
 
   private
 
-  def max_wrong_guesses
+  def max_wrong_guesses?
     wrong_guesses.size >= 6
   end
 
-  def word_found
+  def word_found?
     !@current_guess.include?('_')
   end
 
