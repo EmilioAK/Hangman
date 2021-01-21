@@ -9,4 +9,4 @@ def main
   end_screen(match)
 end
 
-main if $0 == __FILE__
+main if $PROGRAM_NAME == __FILE__
