@@ -1,6 +1,5 @@
-require 'json'
-
 class Hangman
+  require 'json'
   attr_reader :word, :current_guess, :wrong_guesses, :max_wrong_guesses
 
   def initialize
