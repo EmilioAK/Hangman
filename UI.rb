@@ -26,8 +26,10 @@ module UI
   private
 
   def print_results(match)
-    p match.current_guess
-    p match.wrong_guesses
+    formatted_current_guess = match.current_guess.map {|chr| chr.nil? ? '_' : chr}
+    puts "Current guess: #{formatted_current_guess}"
+    puts "Wrong guesses: #{match.wrong_guesses} (#{match.wrong_guesses.size} / #{match.max_wrong_guesses})"
+    puts ''
   end
 
   def end_screen(match)

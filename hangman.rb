@@ -1,16 +1,17 @@
 require 'json'
 
 class Hangman
-  attr_reader :word, :current_guess, :wrong_guesses
+  attr_reader :word, :current_guess, :wrong_guesses, :max_wrong_guesses
 
   def initialize
     @word = select_word
-    @current_guess = Array.new(@word.length, '_')
+    @current_guess = Array.new(@word.length)
     @wrong_guesses = []
+    @max_wrong_guesses = 6
   end
 
   def winner
-    return 'Computer' if max_wrong_guesses?
+    return 'Computer' if @wrong_guesses.size >= @max_wrong_guesses
     return 'Player' if word_found?
 
     false
@@ -52,12 +53,8 @@ class Hangman
 
   private
 
-  def max_wrong_guesses?
-    wrong_guesses.size >= 6
-  end
-
   def word_found?
-    !@current_guess.include?('_')
+    !@current_guess.include?(nil)
   end
 
   def select_word
