@@ -2,11 +2,12 @@ class Hangman
   require 'json'
   attr_reader :word, :current_guess, :wrong_guesses, :max_wrong_guesses
 
-  def initialize
+  def initialize(filename = '../savefile.json')
     @word = select_word
     @current_guess = Array.new(@word.length)
     @wrong_guesses = []
     @max_wrong_guesses = 6
+    @filename = filename
   end
 
   def winner
@@ -29,8 +30,8 @@ class Hangman
     end
   end
 
-  def save(filename = '../savefile.json')
-    File.open(filename, 'w') do |f|
+  def save
+    File.open(@filename, 'w') do |f|
       save = {
         'word' => @word,
         'current_guess' => @current_guess,
@@ -40,8 +41,8 @@ class Hangman
     end
   end
 
-  def load(filename = '../savefile.json')
-    File.open(filename, 'r') do |f|
+  def load
+    File.open(@filename, 'r') do |f|
       save = JSON.parse(f.read)
 
       @word = save['word']
