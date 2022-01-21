@@ -29,7 +29,7 @@ class Hangman
     end
   end
 
-  def save(filename = 'savefile.json')
+  def save(filename = '../savefile.json')
     File.open(filename, 'w') do |f|
       save = {
         'word' => @word,
@@ -40,7 +40,7 @@ class Hangman
     end
   end
 
-  def load(filename = 'savefile.json')
+  def load(filename = '../savefile.json')
     File.open(filename, 'r') do |f|
       save = JSON.parse(f.read)
 
